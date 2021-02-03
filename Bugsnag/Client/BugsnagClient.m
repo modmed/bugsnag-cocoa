@@ -1024,8 +1024,9 @@ NSString *_lastOrientation = nil;
     // We have an orientation, it's not a dupe and we have a lastOrientation.
     // Send a breadcrumb and preserve the orientation.
 
+    NSString *notificationName = notification ? notification.name : @"orientation_change";
     [self addAutoBreadcrumbOfType:BSGBreadcrumbTypeState
-                      withMessage:[self.notificationBreadcrumbs messageForNotificationName:notification.name]
+                      withMessage:[self.notificationBreadcrumbs messageForNotificationName:notificationName]
                       andMetadata:@{
                           @"from" : _lastOrientation,
                           @"to" : orientation
